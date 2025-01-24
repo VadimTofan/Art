@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+    <title>AskWeave - Prompt Enhancer</title>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome To AskWeave</h1>
+    </header>
+
+
+    <section class="container">
+        <div class="container__wrapper">
+            <article class="section section__one">
+                <p>One</p>
+                <img class="container__image" src="./images/bg.png">
+            </article>
+            <article class="section section__two">
+                <p>Two</p>
+            </article>
+            <article class="section section__three">
+                <p>Three</p>
+            </article>
+            <article class="section section__four">
+                <p>Four</p>
+            </article>
+            <article class="section section__five">
+                <p>Five</p>
+            </article>
+        </div> 
+    </section>
+
+
+    <script>
+    function replaceVerticalScrollByHorizontal(event) {
+            if (event.deltaY !== 0) {
+                window.scroll(window.scrollX + event.deltaY * 2, window.scrollY);
+                event.preventDefault();
+            }
+        }
+
+        const mediaQuery = window.matchMedia('(min-width: 770px)');
+
+        if (mediaQuery.matches) {
+            window.addEventListener('wheel', replaceVerticalScrollByHorizontal);
+        }
+
+
+        
+        
+
+
+      const sections = document.querySelectorAll('article');
+        let currentSection = 0;
+
+        window.addEventListener('wheel', (event) => {
+            // Prevent overscrolling
+            event.preventDefault();
+
+            if (event.deltaY > 0) {
+                // Scrolling down
+                currentSection = Math.min(currentSection + 1, sections.length - 1);
+            } else if (event.deltaY < 0) {
+                // Scrolling up
+                currentSection = Math.max(currentSection - 1, 0);
+            }
+
+            // Scroll to the next or previous section
+            sections[currentSection].scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'nearest',
+            });
+                
+            setTimeout(() => {
+                isScrolling = false;
+            }, 10000); // 500ms delay
+        
+        });
+
+        
+    </script>
+</body>
+</html>
