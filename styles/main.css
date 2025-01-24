@@ -7,10 +7,14 @@ body {
   background: linear-gradient(90deg, #3a0ca3, #4c0ce0, #5b20e6, #4c0ce0, #3a0ca3);
   margin: 0;
   overflow: hidden;
-  /* Disable vertical scrolling */
   display: flex;
   flex-direction: row;
-  scroll-behavior: smooth;
+}
+
+.background {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
 }
 
 header {
@@ -57,4 +61,18 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+}
+
+.section {
+  height: 200px;
+  background: red;
+  margin: 10px;
+}
+
+.section:nth-child(1) {
+  clip-path: ellipse(85% 100% at top);
+}
+
+.section:nth-child(2) {
+  clip-path: ellipse(650px 100% at top);
 }
